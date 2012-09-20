@@ -25,6 +25,10 @@ var g_resources = [{
     type: "tmx",
     src: "data/Test.tmx"
 }, {
+    name: "missile1",
+    type: "image",
+    src: "data/img/missile1.png"
+}, {
     name: "walk",
     type: "image",
     src: "data/img/walk.gif"

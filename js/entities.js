@@ -65,3 +65,79 @@ var PlayerEntity = me.ObjectEntity.extend({
     }
  
 });
+
+
+
+/* --------------------------
+an enemy turret
+------------------------ */
+var TurretEntity = me.ObjectEntity.extend({
+
+	MissileEntity missile;
+	
+    init: function(x, y, settings) {
+
+        // call the parent constructor
+        this.parent(x, y, settings);
+
+        // make it collidable
+        this.collidable = true;
+        // make it a enemy object
+        this.type = me.game.ENEMY_OBJECT;
+ 
+ 		missile = new MissileEntity();
+ 		
+    },
+ 
+    // manage the enemy movement
+    update: function() {
+    
+    	// handle projectiles
+    	
+        // check and update movement
+        this.updateMovement();
+
+        return false;
+    }
+});
+
+
+/* --------------------------
+an enemy missile
+------------------------ */
+var MissileEntity = me.ObjectEntity.extend({
+
+	var missile;
+	
+    init: function(x, y, settings) {
+
+		// todo: image angle
+		settings.image = "missile1";
+
+        // call the parent constructor
+        this.parent(x, y, settings);
+
+        // make it collidable
+        this.collidable = true;
+        
+        // make it a enemy object
+        this.type = me.game.ENEMY_OBJECT;
+ 
+    },
+    
+    // call by the engine when colliding with another object
+    // obj parameter corresponds to the other object (typically the player) touching this one
+    onCollision: function(res, obj) {
+ 
+    },
+    
+    // manage the enemy movement
+    update: function() {
+
+        // check and update movement
+        this.updateMovement();
+
+        return true;
+    }
+});
+    

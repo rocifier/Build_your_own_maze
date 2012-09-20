@@ -7,9 +7,28 @@
  *
  **/
 
-// game resources
-var g_resources= [];
-
+//game resources
+var g_resources = [{
+    name: "shapesy",
+    type: "image",
+    src: "data/img/shapesy.png"
+}, {
+    name: "shapesz",
+    type: "image",
+    src: "data/img/shapesz.png"
+}, {
+    name: "newsh2.shp.000000",
+    type: "image",
+    src: "data/img/newsh2.shp.000000.png"
+}, {
+    name: "Test",
+    type: "tmx",
+    src: "data/Test.tmx"
+}, {
+    name: "walk",
+    type: "image",
+    src: "data/img/walk.gif"
+}];
 
 var jsApp	= 
 {	
@@ -51,9 +70,22 @@ var jsApp	=
 	{
 		// set the "Play/Ingame" Screen Object
 		me.state.set(me.state.PLAY, new PlayScreen());
+
+		// add our player entity in the entity pool
+	   me.entityPool.add("runner", PlayerEntity);
+	   
+	   // enable the keyboard
+	   me.input.bindKey(me.input.KEY.LEFT,  "left");
+	   me.input.bindKey(me.input.KEY.RIGHT, "right");
+       me.input.bindKey(me.input.KEY.UP,  "up");
+	   me.input.bindKey(me.input.KEY.DOWN, "down");
       
+        // disable gravity
+        me.sys.gravity = 0;
+        
       // start the game 
 		me.state.change(me.state.PLAY);
+		
 	}
 
 }; // jsApp
@@ -65,6 +97,9 @@ var PlayScreen = me.ScreenObject.extend(
    onResetEvent: function()
 	{	
       // stuff to reset on state change
+      // load a level
+        me.levelDirector.loadLevel("Test");
+        
 	},
 	
 	

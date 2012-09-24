@@ -88,7 +88,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     	
         var a = jsApp.graph.nodes[src.x][src.y];
         var b = jsApp.graph.nodes[dest.x][dest.y];
-        this.path = astar.search(jsApp.graph.nodes, a, b, true);
+        this.path = astar.search(jsApp.graph.nodes, a, b);
         
         if (this.path.length == 0) {
         	return false;  // no modification to path because the new one is invalid
@@ -138,8 +138,8 @@ var TurretEntity = me.ObjectEntity.extend({
     init: function(x, y, settings) {
 
 		settings.image = "turret1";
-		settings.spritewidth = 21;
-		settings.spriteheight = 21;
+		settings.spritewidth = 54;
+		settings.spriteheight = 54;
 		
         this.parent(x, y, settings);
 
@@ -156,8 +156,8 @@ var TurretEntity = me.ObjectEntity.extend({
     	
     	if (!this.spawnedBullet) {
     		this.spawnedBullet = true;
-    		var missile = new MissileEntity(this.pos.x+8, this.pos.y, { image: 'missile2', spritewidth: 7, spriteheight: 7 });
- 			me.game.add(missile, this.z);
+    		var missile = new MissileEntity(this.pos.x+18, this.pos.y, { image: 'missile2', spritewidth: 18, spriteheight: 18 });
+ 			me.game.add(missile, this.z-1);
  			me.game.sort();
  		}
  

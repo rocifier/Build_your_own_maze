@@ -9,21 +9,17 @@
 
 //game resources
 var g_resources = [{
-    name: "shapesy",
+    name: "newtiles",
     type: "image",
-    src: "data/img/shapesy.png"
-}, {
-    name: "shapesz",
-    type: "image",
-    src: "data/img/shapesz.png"
-}, {
-    name: "newsh2.shp.000000",
-    type: "image",
-    src: "data/img/newsh2.shp.000000.png"
+    src: "data/img/newtiles.png"
 }, {
     name: "Test",
     type: "tmx",
     src: "data/Test.tmx"
+}, {
+    name: "Test2",
+    type: "tmx",
+    src: "data/Test2.tmx"
 }, {
     name: "missile1",
     type: "image",
@@ -35,11 +31,11 @@ var g_resources = [{
 }, {
     name: "turret1",
     type: "image",
-    src: "data/img/turret1.png"
+    src: "data/img/turret.png"
 }, {
-    name: "walk",
+    name: "runner",
     type: "image",
-    src: "data/img/walk.gif"
+    src: "data/img/runner.png"
 }];
 
 var jsApp	= 
@@ -228,7 +224,7 @@ var PlayScreen = me.ScreenObject.extend(
 	{	
       // stuff to reset on state change
       // load a level
-      jsApp.loadMaze("Test");
+      jsApp.loadMaze("Test2");
 
     	// result is an array containing the shortest path
 	},
